@@ -21,7 +21,7 @@ length_rod = 1
 alpha = 1           # diffusivity constant D = alpha^2
 tau = length_rod ** 2 / alpha ** 2
 
-time_array = np.linspace(0, 0.5*tau, 100)      #0, 0.15*tau, 300, Nt = 900
+time_array = np.linspace(0, 0.5*tau, 900)      #0, 0.15*tau, 300, Nt = 900
 x_array = np.linspace(0,1,100)
 
 def lambda_n(n: int):
@@ -88,11 +88,11 @@ omega0 = 800
 x_lattice, y_lattice = HelperFunctions.xy_grid(x_lat, y_lat) 
 thetas = np.random.uniform(low = 0., high = 2*np.pi, size = len(x_lattice))
 
-# x_atoms = [ [x_lattice[i] + amp * np.sin(omega(temp_func=temperature_dirichlet, x=x_lattice[i], t=t, omega0=omega0) * t) * np.cos(thetas[i]) for i in range(len(x_lattice))] for t in time_array]
-# y_atoms = [ [y_lattice[i] + amp * np.sin(omega(temp_func=temperature_dirichlet, x=x_lattice[i], t=t, omega0=omega0) * t) * np.sin(thetas[i]) for i in range(len(x_lattice))] for t in time_array]
+x_atoms = [ [x_lattice[i] + amp * np.sin(omega(temp_func=temperature_dirichlet, x=x_lattice[i], t=t, omega0=omega0) * t) * np.cos(thetas[i]) for i in range(len(x_lattice))] for t in time_array]
+y_atoms = [ [y_lattice[i] + amp * np.sin(omega(temp_func=temperature_dirichlet, x=x_lattice[i], t=t, omega0=omega0) * t) * np.sin(thetas[i]) for i in range(len(x_lattice))] for t in time_array]
 
-# x_atoms = np.asarray(x_atoms).transpose()
-# y_atoms = np.asarray(y_atoms).transpose()
+x_atoms = np.asarray(x_atoms).transpose()
+y_atoms = np.asarray(y_atoms).transpose()
 
 print('Lattice evo done')
 
@@ -105,12 +105,12 @@ canvas = MultiCanvas(
     ncols = 1,
     axes_limits = [[0,1,0,1.2],[xmin,xmax,ymin,ymax],[xmin,xmax,ymin,ymax]],
     axes_labels = [['$x$', 'Temperature $T(x,t)$'],['', ''],['', '']],
-    height_ratios = [6, 1, 1]
+    height_ratios = [5, 1, 1]
 )
 
 canvas.set_axis_properties(row = 0, col = 0, yticks = [-0.2, 0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2], yticklabels = ['', '$T_\\infty$', '', '', '', '', '$T_\\mathrm{max}$', ''])
 canvas.set_axis_properties(row = 1, col = 0, aspect = 'equal', xticklabels = [], yticklabels = [], xticks = [], yticks = [])
-canvas.set_axis_properties(row = 2, col = 0, aspect = 'equal', yticks = [], yticklabels = [])
+canvas.set_axis_properties(row = 2, col = 0, aspect = 'equal', yticks = [], yticklabels = [], xticks = [], xticklabels = [])
 
 temperature_profile = AnimatedLine(
     name = 'Temperature',
@@ -125,7 +125,9 @@ heat_map = AnimatedImshow(
     image_data = image_data,
     extent = [xmin,xmax,ymin,ymax],
     cmap = 'plasma',
-    aspect = 'equal'
+    aspect = 'equal',
+    vmin = 0,
+    vmax = 1
 )
 
 canvas.add_artist(heat_map, row = 1, col = 0)
@@ -133,11 +135,13 @@ canvas.add_artist(heat_map, row = 1, col = 0)
 colorscale = StaticColorBar(
     name = 'Colorbar',
     imshow = heat_map,
-    styling_dict = dict(location = 'bottom', orientation = 'horizontal', label = '$T$', ticks = [0, 0.2, 0.4, 0.6, 0.8, 1.0])
+    styling_dict = dict(location = 'top', orientation = 'horizontal', ticks = [0, 0.2, 0.4, 0.6, 0.8, 1.0]),
 )
+
 
 canvas.add_artist(colorscale, row = 1, col = 0)
 colorscale.set_tick_labels(['$T_\\infty$', '', '', '', '', '$T_\\mathrm{max}$'], orientation = 'horizontal')
+
 
 lattice_hlines = StaticHlines('lattice hlines', y_lat, xmin, xmax)
 lattice_vlines = StaticVlines('lattice vlines', x_lat, ymin, ymax)
@@ -148,13 +152,13 @@ canvas.add_artist(lattice_vlines, row = 2, col = 0)
 lattice_hlines.set_styling_properties(color = 'grey', linewidth = 0.3)
 lattice_vlines.set_styling_properties(color = 'grey', linewidth = 0.3)
 
-# atoms = AnimatedScatter('atoms', x_atoms, y_atoms)
-# atoms.set_styling_properties(markersize = 5, markerfacecolor = colors.to_rgba('tab:blue', 0.6), markeredgecolor = 'tab:blue', markeredgewidth=0.5)
+atoms = AnimatedScatter('atoms', x_atoms, y_atoms)
+atoms.set_styling_properties(markersize = 5, markerfacecolor = colors.to_rgba('tab:blue', 0.6), markeredgecolor = 'tab:blue', markeredgewidth=0.5)
 
-# canvas.add_artist(atoms, row = 2, col = 0)
+canvas.add_artist(atoms, row = 2, col = 0)
 
 canvas.save_canvas('canvas.jpg')
 
 animation = Animation(canvas, interval = 10)
-#animation.render('heat_evolution_rod.mp4')
+animation.render('heat_evolution_rod.mp4')
 
