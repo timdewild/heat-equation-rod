@@ -133,10 +133,11 @@ canvas.add_artist(heat_map, row = 1, col = 0)
 colorscale = StaticColorBar(
     name = 'Colorbar',
     imshow = heat_map,
-    styling_dict = dict(location = 'bottom', orientation = 'horizontal', label = '$T$', ticks = [0, 0.2, 0.4, 0.6, 0.8, 1.0], ticklabels = ['$T_\\infty$', '', '', '', '', '$T_\\mathrm{max}$'])
+    styling_dict = dict(location = 'bottom', orientation = 'horizontal', label = '$T$', ticks = [0, 0.2, 0.4, 0.6, 0.8, 1.0])
 )
 
 canvas.add_artist(colorscale, row = 1, col = 0)
+colorscale.set_tick_labels(['$T_\\infty$', '', '', '', '', '$T_\\mathrm{max}$'], orientation = 'horizontal')
 
 lattice_hlines = StaticHlines('lattice hlines', y_lat, xmin, xmax)
 lattice_vlines = StaticVlines('lattice vlines', x_lat, ymin, ymax)
