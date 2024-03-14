@@ -56,7 +56,7 @@ x = np.linspace(0,1,100)
 temp_profile_dirichlet = [temperature_dirichlet(x, t) for t in time_array]
 temp_profile_dirichlet = np.stack(temp_profile_dirichlet, axis = 1)
 
-X, Y = np.meshgrid(np.linspace(0,1,200), np.linspace(0,1,100))
+X, Y = np.meshgrid(np.linspace(0,1,300), np.linspace(0,1,100))
 
 image_data = [temperature_grid(temperature_neumann, X, Y, t) for t in time_array]
 
@@ -71,10 +71,12 @@ canvas = MultiCanvas(
     nrows = 3,
     ncols = 1,
     axes_limits = [[0,1,0,1.2],[0,1,0,1],[0,1,0,1]],
-    axes_labels = [['', '$y$'],['', '$y$'],['$x$', '$y$']],
-    height_ratios = [6,1,2],
+    axes_labels = [['', '$T$'],['', ''],['$x$', '$y$']],
+    height_ratios = [6,0.33,2],
     shared_x = True
 )
+
+canvas.set_axis_properties(row = 1, col = 0, xticklabels = [], yticklabels = [])
 
 temperature_profile = AnimatedLine(
     name = 'Temperature',
@@ -85,13 +87,13 @@ temperature_profile = AnimatedLine(
 heat_map = AnimatedImshow(
     name = 'Heatmap',
     image_data = image_data,
-    extent = [0,1,0,1]
+    extent = [0,1,0,1],
+    aspect = 'auto',
+    cmap = 'plasma'
 )
 
 canvas.add_artist(temperature_profile, row = 0, col = 0)
 canvas.add_artist(heat_map, row = 1, col = 0)
-
-heat_map.set_styling_properties(aspect = 'auto')
 
 animation = Animation(canvas, interval = 10)
 animation.render('heat_evolution_rod.mp4')
