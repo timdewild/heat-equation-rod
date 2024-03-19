@@ -1,14 +1,14 @@
 # Heat Equation for 1-Dimensional Rod
 In this animation (made using the [`matnimation`](https://github.com/timdewild/matnimation/tree/main) module), we model the cooling of a 1-dimensional metal rod, subject to different boundary conditions (BCs). Of course, 1-dimensional rods do not exist, but this is a very good approximation for rods whose thickness $d$ is much smaller then their length $L$. The location along the rod is indicated by the coordinate $x$ and we work in units such that the rod has unit length and extents over $x\in [0,1]$. The temperature along the rod at a given moment in time $t$ is denoted by $u(x,t)$. An example animation is given directly below, for more details and examples read the rest of the documentation. 
 
+https://github.com/timdewild/heat-equation-rod/assets/93600756/b446ba26-cad3-4a81-be8a-be11a59d7828
+
 The animation captures the following scenario: you have a metal rod and heat it in the middle (using a lighter, for example). After you stop heating the metal, you wish to find out how the heat flows through the rod and how the temperature distribution changes over time. The animation starts at the moment you turn of the lighter and the temperature distribution looks like a bell curve, peaking at the place where the lighter was. The three panels show the following:
 - **Panel 1:** shows the time-evolution of the temperature profile along the rod. 
 - **Panel 2:** shows how the temperature in the rod changes by means of a heatmap, with vectors showing how the heat flows on top. 
 - **Panel 3:** shows how atoms vibrate in the lattice and how these vibrations react to the changing temperature distribution. 
 
-More details are given the rest of the documentation. 
-
-https://github.com/timdewild/heat-equation-rod/assets/93600756/b446ba26-cad3-4a81-be8a-be11a59d7828
+For more details and other animations, see the rest of this documentation. 
 
 # Contents
 - [Animation Details](#animation-details)
