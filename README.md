@@ -10,12 +10,22 @@ The time-evolution of the temperature $u$ is given by a partial differential equ
 
 $$u_t = D u_{xx},$$
 
-where $D$ is the thermal diffusivity and subscripts denote partial derivatives with respect to the subscripted variable. To solve this PDE, we need two extra ingredients: initial and boundary conditions. We will work in units such that the bar has unit length and hence $x\in [0,1]$. 
+where $D$ is the thermal diffusivity and subscripts denote partial derivatives with respect to the subscripted variable. We will work in units such that the bar has unit length and hence $x\in [0,1]$.  To solve this PDE, we need two extra ingredients: initial and boundary conditions.
 
 ### Initial Conditions
 Initial conditions describe the state of the system at the initial time. In our case, this is the temperature distribution along the rod at time $t=0$, which we denote by $f(x)$. That is:
 
 $$u(x,0)\equiv f(x), \quad x\in[0,1].$$
+
+### Boundary Conditions
+We have to specify the behavior at the two ends, or boundaries, of the rod:
+
+$$x_0 = \{0,1\}.$$ 
+
+Different boundary conditions (BCs) yield very different solutions and also reflect different assumptions about the physical characteristics of the system. 
+
+- **Uniform Dirichlet BCs:** In this case we assume that the temperature is fixed to be the same value $T_\infty$ on both ends of the rod at all times:
+$$u(x_0,t) = T_\infty.$$
 
 
 
