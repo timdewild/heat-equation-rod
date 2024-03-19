@@ -3,7 +3,7 @@ In this animation (made using the [`matnimation`](https://github.com/timdewild/m
 
 https://github.com/timdewild/heat-equation-rod/assets/93600756/b446ba26-cad3-4a81-be8a-be11a59d7828
 
-The animation captures the following scenario: you have a metal rod and heat it in the middle (using a lighter, for example). After you stop heating the metal, you wish to find out how the heat flows through the rod and how the temperature distribution changes over time. The animation starts at the moment you turn of the lighter and the temperature distribution looks like a bell curve, peaking at the place where the lighter was. The three panels show the following:
+The animation above captures the following scenario: you have a metal rod and heat it in the middle (using a lighter, for example). After you stop heating the metal, you wish to find out how the heat flows through the rod and how the temperature distribution changes over time. The animation starts at the moment you turn of the lighter and the temperature distribution looks like a bell curve, peaking at the place where the lighter was. The three panels show the following:
 - **Panel 1:** shows the time-evolution of the temperature profile along the rod. 
 - **Panel 2:** shows how the temperature in the rod changes by means of a heatmap, with vectors showing how the heat flows on top. 
 - **Panel 3:** shows how atoms vibrate in the lattice and how these vibrations react to the changing temperature distribution. 
@@ -53,10 +53,10 @@ $$u(x_0,t) = T_\infty.$$ These BCs are applicable in case the rod is in connecti
 Given the initial and boundary conditions, the heat equation can be solved using the Fourier series. (Actually, Joseph Fourier discovered what we now know as Fouries series when solving the heat equation back in the 19-th century). 
 
 - For **uniform Dirichlet BCs**, the solution is:
-$$u(x,t) = \sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where we defined $\lambda_n \equiv cn\pi$, $\mu_n \equiv n\pi$ and $c\equiv \sqrt{D}$. The coefficients $b_n$ are the cosine Fourier coefficients: $$b_n = \int_0^1 dx\\; f(x)\sin(n\pi x).$$
+$$u(x,t) = \sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where we defined $\lambda_n \equiv cn\pi$, $\mu_n \equiv n\pi$ and $c\equiv \sqrt{D}$. The coefficients $b_n$ are the sine Fourier coefficients: $$b_n = \int_0^1 dx\\; f(x)\sin(n\pi x).$$
 
 - For **uniform Neumann BCs**, the solution is:
-$$u(x,t) = a_0+\sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where the coefficients $a_n$ are the sine Fourier coefficients: $$a_0 = \int_0^1 dx\\; f(x),\quad a_n = 2\int_0^1 dx\\; f(x)\cos(\mu_n x).$$ Note that the coefficient $a_0$ is the (spatial) average of the initial temperature distribution $f(x)$:
+$$u(x,t) = a_0+\sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where the coefficients $a_n$ are the cosine Fourier coefficients: $$a_0 = \int_0^1 dx\\; f(x),\quad a_n = 2\int_0^1 dx\\; f(x)\cos(\mu_n x).$$ Note that the coefficient $a_0$ is the (spatial) average of the initial temperature distribution $f(x)$:
 $$a_0 = \bar{f}.$$ As $t\to\infty$, the solution asymptotes to $u(x,t)\to a_0$. This is to be expected, since the bar is insulated and the thermal energy distributes evenly over the bar so that the rod acquires a constant temperature everywhere. It is not suprising that this temperature is equal to the average of the initial temperature profile. 
 
 > [!NOTE]
@@ -103,15 +103,29 @@ $$f(x) = T_\infty+\frac{1}{2}(T_\mathrm{max}- T_\infty)\Big[1-\cos(2\pi x)\Big].
 > [!NOTE]
 > For mathematical convenience, we set $T_\infty\equiv 0$ from now on. We can do this because the equation that governs the time-evolution of $u(x,t)$ is a linear differential equation and we apply the principle of superposition. If we find a solution for $u(x,t)$, we can always add a constant to the solution (i.e. $T \neq 0$) and we will still end up with a valid solution.
 
+To solve for the time-evolution of the temperature profile, we have to specify the boundary conditions (BCs). Here we take Dirichlet BCs and Neumann BCs.
+
+### Dirichlet BCs
+For Dirichlet BCs, we take $u(x_0,t) = T_\infty \equiv 0$ such that the rod is in contact with an infinite thermal bath at temperature $T_\infty$. This means that as time evolves, the rod gets a uniform temperature $T_\infty$ once it is in thermal equilibrium with the infinite bath. The sine Fourier coefficients are:
+$$b_n = \frac{2}{n\pi}-\frac{2n}{(n^2-4)\pi},\quad n = 1,3,5,\dots$$
+and $b_n = 0$ for even $n$. 
+
 https://github.com/timdewild/heat-equation-rod/assets/93600756/b446ba26-cad3-4a81-be8a-be11a59d7828
 
-neumann
+### Neumann BCs
+For Neumann BCs, we take $u_x(x_0,t) = 0$ such that the rod is perfectly insulated at both ends. This means that as time evolves, no thermal energy leaves the rod: it solely redistributes over the rod until it has a uniform temperature. For convenience, we take $T_\infty = 0$ and $T_\mathrm{max}=1$. The cosine Fourier coefficients $a_n$ are all zero, except for:
+$$a_0=\frac{1}{2},\quad a_2 = -\frac{1}{2}.$$ 
 
 https://github.com/timdewild/heat-equation-rod/assets/93600756/5583de22-49f6-4746-984b-337138eda75c
 
 ## Animation 2: Two Rods in Thermal Contact
-
-neumann
+Lastly, consider two rods of length $L=1/2$ made of the same material. The right rod is kept at uniform temperature $T_1$ and the left rod is kept at $T_2$, such that $T_2>T_1$. At $t=0$, the two rods are connected, such that we essentially have a rod of unit length with initial temperature distribution given by a step function:
+```math
+f(x)=\begin{cases}
+			0, & \text{if $n$ odd}\\
+            2, & \text{otherwise}
+	\end{cases}
+```
 
 https://github.com/timdewild/heat-equation-rod/assets/93600756/0c3c18e7-ece7-4081-9c75-bdef5327c6fb 
 
