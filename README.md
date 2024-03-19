@@ -47,7 +47,10 @@ Energy flows from hot regions to cold regions, so as to get the whole system int
 $$
 \vec{q} = -k\vec{\nabla} u,
 $$
-where the proportionality constant $k$ is the thermal conductivity. 
+where the proportionality constant $k$ is the thermal conductivity. In our one-dimesional case, we have:
+$$
+\vec{q}(x,t) = -k u_x(x,t)\hat{x}
+$$
 
 
 
