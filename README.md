@@ -20,7 +20,7 @@ $$u(x,0)\equiv f(x), \quad x\in[0,1].$$
 ### Boundary Conditions
 We have to specify the behavior at the two ends, or boundaries, of the rod:
 
-$$x_0 = \{0,1\}.$$ 
+$$x_0 = \\{0,1\\}.$$ 
 
 Different boundary conditions (BCs) yield very different solutions and also reflect different assumptions about the physical characteristics of the system. 
 
@@ -32,10 +32,10 @@ $$u(x_0,t) = T_\infty.$$ These BCs are applicable in case the rod is in connecti
 Given the initial and boundary conditions, the heat equation can be solved using the Fourier series. (Actually, Joseph Fourier discovered what we now know as Fouries series when solving the heat equation back in the 19-th century). 
 
 - For **uniform Dirichlet BCs**, the solution is:
-$$u(x,t) = \sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where we defined $\lambda_n \equiv cn\pi$, $\mu_n \equiv n\pi$ and $c\equiv \sqrt{D}$. The coefficients $b_n$ are the cosine Fourier coefficients: $$b_n = \int_0^1 dx\; f(x)\sin(n\pi x).$$
+$$u(x,t) = \sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where we defined $\lambda_n \equiv cn\pi$, $\mu_n \equiv n\pi$ and $c\equiv \sqrt{D}$. The coefficients $b_n$ are the cosine Fourier coefficients: $$b_n = \int_0^1 dx\\; f(x)\sin(n\pi x).$$
 
 - For **uniform Neumann BCs**, the solution is:
-$$u(x,t) = a_0+\sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where the coefficients $a_n$ are the sine Fourier coefficients: $$a_0 = \int_0^1 f(x)\;dx,\quad a_n = 2\int_0^1 f(x)\cos(\mu_n x)\;dx
+$$u(x,t) = a_0+\sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where the coefficients $a_n$ are the sine Fourier coefficients: $$a_0 = \int_0^1 f(x)\\;dx,\quad a_n = 2\int_0^1 f(x)\cos(\mu_n x)\\;dx
 
 
 
