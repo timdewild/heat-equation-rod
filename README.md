@@ -14,14 +14,17 @@ In this animation (made using the [`matnimation`](https://github.com/timdewild/m
 # Animations
 ## Animation 1: Bell Shaped Heating
 dirichlet
+
 https://github.com/timdewild/heat-equation-rod/assets/93600756/b446ba26-cad3-4a81-be8a-be11a59d7828
 
 neumann
+
 https://github.com/timdewild/heat-equation-rod/assets/93600756/5583de22-49f6-4746-984b-337138eda75c
 
 ## Animation 2: Two Rods in Thermal Contact
 
 neumann
+
 https://github.com/timdewild/heat-equation-rod/assets/93600756/0c3c18e7-ece7-4081-9c75-bdef5327c6fb 
 
 # Animation Details
