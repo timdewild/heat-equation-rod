@@ -1,6 +1,13 @@
 # Heat Equation for 1-Dimensional Rod
 In this animation (made using the [`matnimation`](https://github.com/timdewild/matnimation/tree/main) module), we model the cooling of a 1-dimensional metal rod, subject to different boundary conditions (BCs). Of course, 1-dimensional rods do not exist, but this is a very good approximation for rods whose thickness $d$ is much smaller then their length $L$. The location along the rod is indicated by the coordinate $x$ and we work in units such that the rod has unit length and extents over $x\in [0,1]$. The temperature along the rod at a given moment in time $t$ is denoted by $u(x,t)$. An example animation is given directly below, for more details and examples read the rest of the documentation. 
 
+The animation captures the following scenario: you have a metal rod and heat it in the middle (using a lighter, for example). After you stop heating the metal, you wish to find out how the heat flows through the rod and how the temperature distribution changes over time. The animation starts at the moment you turn of the lighter and the temperature distribution looks like a bell curve, peaking at the place where the lighter was. The three panels show the following:
+- **Panel 1:** shows the time-evolution of the temperature profile along the rod. 
+- **Panel 2:** shows how the temperature in the rod changes by means of a heatmap, with vectors showing how the heat flows on top. 
+- **Panel 3:** shows how atoms vibrate in the lattice and how these vibrations react to the changing temperature distribution. 
+
+More details are given the rest of the documentation. 
+
 https://github.com/timdewild/heat-equation-rod/assets/93600756/b446ba26-cad3-4a81-be8a-be11a59d7828
 
 # Contents
@@ -94,7 +101,7 @@ Let us make things more quantitative. The left (right) edge of the rod is locate
 $$f(x) = T_\infty+\frac{1}{2}(T_\mathrm{max}- T_\infty)\Big[1-\cos(2\pi x)\Big].$$ 
 
 > [!NOTE]
-> For mathmetical convenience, we set $T_\infty\equiv 0$ from now on. We can do this because the equation that governs the time-evolution of $u(x,t)$ is a linear differential equation and we apply the principle of superposition. If we find a solution for $u(x,t)$, we can always add a constant to the solution (i.e. $T_\neq 0$) and we will still end up with a valid solution.
+> For mathematical convenience, we set $T_\infty\equiv 0$ from now on. We can do this because the equation that governs the time-evolution of $u(x,t)$ is a linear differential equation and we apply the principle of superposition. If we find a solution for $u(x,t)$, we can always add a constant to the solution (i.e. $T \neq 0$) and we will still end up with a valid solution.
 
 https://github.com/timdewild/heat-equation-rod/assets/93600756/b446ba26-cad3-4a81-be8a-be11a59d7828
 
