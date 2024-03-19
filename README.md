@@ -7,11 +7,7 @@ We will solve the heat equation for a 1-dimensional metal rod of unit length. Of
 The question we wish to answer is the following: given the temperature distribution along the rod at $t=0$, what will be the temperature distribution at all subsequent times $t>0$? 
 
 The time-evolution of the temperature $u$ is given by the heat equation:
-$$
-\begin{equation*}
-    \frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2}
-\end{equation*}
-$$
+$$\frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2}$$
 
 
 ## Dirichlet BCs
