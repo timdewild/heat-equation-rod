@@ -125,7 +125,7 @@ f(x)=\begin{cases}
 	\end{cases}
 ```
 We take Neumann BCs, so that the system is entirely isolated and heat only flows in the system. The cosine Fourier coefficients $a_n$ are given by:
-$$a_0 = (T_1+T_2)/2,\quad a_n = \frac{2}{n\pi}(T_1+T_2)\sin(n\pi/2)$$.
+$$a_0 = (T_1+T_2)/2,\quad a_n = \frac{2}{n\pi}(T_1+T_2)\sin(n\pi/2).$$
 Not suprisingly, the temperature distribution tends to $u(x,t)\to a_0$ as time progresses, which is exactly the average of $T_1$ and T_2. 
 
 https://github.com/timdewild/heat-equation-rod/assets/93600756/0c3c18e7-ece7-4081-9c75-bdef5327c6fb 
