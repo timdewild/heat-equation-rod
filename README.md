@@ -120,8 +120,8 @@ https://github.com/timdewild/heat-equation-rod/assets/93600756/5583de22-49f6-474
 Lastly, consider two rods of length $L=1/2$ made of the same material. The right rod is kept at uniform temperature $T_1$ and the left rod is kept at $T_2$, such that $T_2>T_1$. At $t=0$, the two rods are connected, such that we essentially have a rod of unit length with initial temperature distribution given by a step function:
 ```math
 f(x)=\begin{cases}
-			0, & \text{if $n$ odd}\\
-            2, & \text{otherwise}
+			T_2, & \text{if $x\in[0,0.5]$}\\
+            T_1, & \text{if $x\in[0.5,1]$}
 	\end{cases}
 ```
 We take Neumann BCs, so that the system is entirely isolated and heat only flows in the system. The cosine Fourier coefficients $a_n$ are given by:
