@@ -3,23 +3,31 @@ In this animation (made using the [`matnimation`](https://github.com/timdewild/m
 
 # Contents
 - [Animations](#animations)
+    - [Animation 1: Bell Shaped Heating](#animation-1-bell-shaped-heating)
+    - [Animation 2: Two Rods in Thermal Contact](#animation-2-two-rods-in-thermal-contact)
+- [Animation Details](#animation-details)
     - [Upper Panel: Solving the Heat Equation](#upper-panel-solving-the-heat-equation)
-- [Rotating Vectors](#rotating-vectors)
-- [Lissajous Curves](#lissajous-curves)
-- [Decaying 2D Gaussian](#decaying-2d-gaussian)
+    - [Middle Panel: Heat Flux and Fourier's Law](#middle-panel-heat-flux-and-fouriers-law)
+    - [Lower Panel: Atomic Lattice Vibrations](#lower-panel-atomic-lattice-vibrations)
+
 
 # Animations
-## Animation 1: Dirichlet BCs
+## Animation 1: Bell Shaped Heating
+dirichlet
 https://github.com/timdewild/heat-equation-rod/assets/93600756/b446ba26-cad3-4a81-be8a-be11a59d7828
 
-## Animation 1: Neumann BCs
+neumann
 https://github.com/timdewild/heat-equation-rod/assets/93600756/5583de22-49f6-4746-984b-337138eda75c
 
-## Animation 2: Neumann BCs
+## Animation 2: Two Rods in Thermal Contact
+
+neumann
 https://github.com/timdewild/heat-equation-rod/assets/93600756/0c3c18e7-ece7-4081-9c75-bdef5327c6fb 
 
+# Animation Details
+Here we will provide the details of the animation, for each panel separately. 
 
-# Upper Panel: Solving the Heat Equation
+## Upper Panel: Solving the Heat Equation
 We will solve the heat equation for a 1-dimensional metal rod of unit length. Of course, 1-dimensional rods do not exist, but this is a very good approximation for rods whose thickness $d$ is much smaller then their length $L$. The location along the rod is indicated by the the coordinate $x$. The temperature along the rod at a given moment in time $t$ is denoted by $u(x,t)$. 
 
 The question we wish to answer is the following: given the temperature distribution along the rod at $t=0$, what will be the temperature distribution at all subsequent times $t>0$? 
@@ -30,12 +38,12 @@ $$u_t = D u_{xx},$$
 
 where $D$ is the thermal diffusivity and subscripts denote partial derivatives with respect to the subscripted variable. We will work in units such that the bar has unit length and hence $x\in [0,1]$.  To solve this PDE, we need two extra ingredients: initial and boundary conditions.
 
-## Initial Conditions
+### Initial Conditions
 Initial conditions describe the state of the system at the initial time. In our case, this is the temperature distribution along the rod at time $t=0$, which we denote by $f(x)$. That is:
 
 $$u(x,0)\equiv f(x), \quad x\in[0,1].$$
 
-## Boundary Conditions
+### Boundary Conditions
 We have to specify the behavior at the two ends, or boundaries, of the rod:
 
 $$x_0 = \\{0,1\\}.$$ 
@@ -59,7 +67,7 @@ $$a_0 = \bar{f}.$$ As $t\to\infty$, the solution asymptotes to $u(x,t)\to a_0$. 
 > [!NOTE]
 > In the animations, the evolution of the temperature profile over time is shown in the upper panel. 
 
-# Middle Panel: Heat Flux and Fourier's Law
+## Middle Panel: Heat Flux and Fourier's Law
 In addition to the evolution of the temperature over time, it is also interesting to look at the heat flux in the rod. The flux tells us how heat flows through the rod over time. We define heat flux density $\vec{q}$ as the amount of thermal energy $dE$ flowing though an area element $d\vec{A}= dA\\;\hat{n}$ in time interval $dt$. This is given by:
 $$\vec{q} = \frac{dE}{dA\\;dt}.$$
 Energy flows from hot regions to cold regions, so as to get the whole system into thermal equilibrium. Therefore, we expect the heat flux $\vec{q}$ to be proportional to the negative gradient of the temperature:
@@ -70,13 +78,13 @@ $$\vec{q}(x,t) = -k u_x(x,t)\hat{x}.$$
 > [!NOTE]
 > In the animations, the middle panel gives temperature distribution along the rod by means of a heatmap. Vectors representing the heat flux $\vec{q}$ are superimposed on this heatmap in white. 
 
-# Lower Panel: Atomic Lattice Vibrations
+## Lower Panel: Atomic Lattice Vibrations
 At the microscopic level, the metal rod consists of a lattice, with atoms at the nodes of the lattice. Classically, one may think of the atoms being connected to each other via small springs, so that energy from one can be transferred from one atom to a neighbouring atom. The atoms vibrate about their equilibrium position in the lattice. The higher the temperature, the faster the atoms oscillate/vibrate in the lattice. In case of a temperature gradient in the rod, the atoms in hotter regions transfer part of their kinetic energy to atoms in colder regions. The kinetic energy of the latter will increase, making them vibrate faster. The former will lose kinetic energy, and start vibrating slower. Once the temperature is evenly distributed along the rod, all atoms in lattice vibrate at the same pace.  
 
 > [!NOTE]
 > In the animations, the lower panels shows the atoms (blue dots) vibrating in the atomic lattice. Although it is sometimes difficult to tell at first glance (play the animations multiple times), the frequency of the vibrations follows the temperature distribution over time. In regions that cool down, the vibrations reduce as well (and vice versa).  
 
-## Modelling the Vibrations
+### Modelling the Vibrations
 We model the vibrations by assuming that the frequency of oscillation around the equilibrium position, $\omega$, is proportional to the square root of temperature:
 $$\omega(x,t) = \omega_0/3 + \omega_0\sqrt{u(x,t)}.$$
 Note that since the temperature depends on space and time, the vibration frequency does so as well. This makes perfect sense in light of what we discussed previously: in hotter regions, the atoms oscillate faster in the lattice. The constant of proportionality is called $\omega_0$. In the calculations behind the animation (see [code](https://github.com/timdewild/heat-equation-rod/blob/main/fourier_solutions_heat_equation.py)), we always take $u\geq 0$ for calculational convenience. However, we do not use an absolute temperature scale (like Kelvins), so even at $u = 0$ the atoms still vibrate. Therefore we included a constant term $\omega_0/3$ to mimick this. In fact, the above equation is only dimensionally correct if the temperature is dimesionless. In fact, it should not be taken as a precise physical law, but merely as a functional relationship to used to make the relation between temperature and lattice vibrations clear in the animations. 
