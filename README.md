@@ -23,9 +23,7 @@ For more details and other animations, see the rest of this documentation.
 Here we will provide the details of the animation, for each panel separately. 
 
 ## Upper Panel: Solving the Heat Equation
-We will solve the heat equation for a 1-dimensional metal rod of unit length. Of course, 1-dimensional rods do not exist, but this is a very good approximation for rods whose thickness $d$ is much smaller then their length $L$. The location along the rod is indicated by the the coordinate $x$. The temperature along the rod at a given moment in time $t$ is denoted by $u(x,t)$. 
-
-The question we wish to answer is the following: given the temperature distribution along the rod at $t=0$, what will be the temperature distribution at all subsequent times $t>0$? 
+The key question we wish to answer is the following: given the temperature distribution along the rod at $t=0$, what will be the temperature distribution at all subsequent times $t>0$? 
 
 The time-evolution of the temperature $u$ is given by a partial differential equation (PDE) called the heat equation:
 
