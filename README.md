@@ -38,7 +38,7 @@ $$u(x,t) = \sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where we def
 $$u(x,t) = a_0+\sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where the coefficients $a_n$ are the sine Fourier coefficients: $$a_0 = \int_0^1 dx\\; f(x),\quad a_n = 2\int_0^1 dx\\; f(x)\cos(\mu_n x).$$ Note that the coefficient $a_0$ is the (spatial) average of the initial temperature distribution $f(x)$:
 $$a_0 = \bar{f}.$$ As $t\to\infty$, the solution asymptotes to $u(x,t)\to a_0$. This is to be expected, since the bar is insulated and the thermal energy distributes evenly over the bar so that the rod acquires a constant temperature everywhere. It is not suprising that this temperature is equal to the average of the initial temperature profile. 
 
-> [NOTE!]
+> [!NOTE]
 > In the animations, the evolution of the temperature profile over time is shown in the upper panel. 
 
 ## Heat Flux: Fourier's Law
@@ -49,12 +49,14 @@ $$\vec{q} = -k\vec{\nabla} u,$$
 where the proportionality constant $k$ is the thermal conductivity. In our one-dimesional case, we have:
 $$\vec{q}(x,t) = -k u_x(x,t)\hat{x}.$$
 
-In the animations 
+> [!NOTE]
+> In the animations, the middle panel gives temperature distribution along the rod by means of a heatmap. Vectors representing the heat flux $\vec{q}$ are superimposed on this heatmap in white. 
 
 ## Atomic Lattice Vibrations
 At the microscopic level, the metal rod consists of a lattice, with atoms at the nodes of the lattice. Classically, one may think of the atoms being connected to each other via small springs, so that energy from one can be transferred from one atom to a neighbouring atom. The atoms vibrate about their equilibrium position in the lattice. The higher the temperature, the faster the atoms oscillate/vibrate in the lattice. In case of a temperature gradient in the rod, the atoms in hotter regions transfer part of their kinetic energy to atoms in colder regions. The kinetic energy of the latter will increase, making them vibrate faster. The former will lose kinetic energy, and start vibrating slower. Once the temperature is evenly distributed along the rod, all atoms in lattice vibrate at the same pace. 
 
-In the animations 
+> [!NOTE]
+> In the animations, the lower panels shows the atoms (blue dots) vibrating in the atomic lattice. Although it is sometimes difficult to tell at first glance (play the animations multiple times), the frequency of the vibrations follows the temperature distribution over time. In regions that cool down, the vibrations reduce as well (and vice versa).  
 
 
 
