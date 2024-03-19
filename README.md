@@ -1,36 +1,16 @@
 # Heat Equation for 1-Dimensional Rod
-In this animation (made using the [`matnimation`](https://github.com/timdewild/matnimation/tree/main) module), we model the cooling of a 1-dimensional metal rod, subject to different boundary conditions (BCs). 
+In this animation (made using the [`matnimation`](https://github.com/timdewild/matnimation/tree/main) module), we model the cooling of a 1-dimensional metal rod, subject to different boundary conditions (BCs). Of course, 1-dimensional rods do not exist, but this is a very good approximation for rods whose thickness $d$ is much smaller then their length $L$. The location along the rod is indicated by the coordinate $x$ and we work in units such that the rod has unit length and extents over $x\in [0,1]$. The temperature along the rod at a given moment in time $t$ is denoted by $u(x,t)$. An example animation is given directly below, for more details and examples read the rest of the documentation. 
+
+https://github.com/timdewild/heat-equation-rod/assets/93600756/b446ba26-cad3-4a81-be8a-be11a59d7828
 
 # Contents
-- [Animations](#animations)
-    - [Animation 1: Bell Shaped Heating](#animation-1-bell-shaped-heating)
-    - [Animation 2: Two Rods in Thermal Contact](#animation-2-two-rods-in-thermal-contact)
 - [Animation Details](#animation-details)
     - [Upper Panel: Solving the Heat Equation](#upper-panel-solving-the-heat-equation)
     - [Middle Panel: Heat Flux and Fourier's Law](#middle-panel-heat-flux-and-fouriers-law)
     - [Lower Panel: Atomic Lattice Vibrations](#lower-panel-atomic-lattice-vibrations)
-
-
-# Animations
-## Animation 1: Bell Shaped Heating
-Consider the following scenario: you have a metal rod and heat it in the middle (using a lighter, for example). After you stop heating the metal, you wish to find out how the temperature in the entire rod changes over time. Let's start at the moment you switched off the lighter. At this moment, the temperature distribution will peak in the middle of the rod and will be minimum at the two ends of the rod. Inbetween, we expect the temperature distribution to smoothly interpolate between the minima and maximum. 
-
-To make things more quantative, we $x$ to denote the position along the rod and work in units such that the rod has unit length. The left (right) edge of the rod is located at $x=0$ ($1$) and the center at $x=1/2$. We denote the temperature at the ends as $T_\infty$ and at the center as $T_\mathrm{max}$. We use a bell-shaped function, more specifically the raised cosine distribution, to interpolate between the limiting values. Let $f(x)$ denote the initial temperature distribution (at $t=0$):
-$$f(x) = T_\infty+\frac{1}{2}(T_\mathrm{max}- T_\infty)\Big[1-\cos(2\pi x)\Big].$$ 
-
-dirichlet
-
-https://github.com/timdewild/heat-equation-rod/assets/93600756/b446ba26-cad3-4a81-be8a-be11a59d7828
-
-neumann
-
-https://github.com/timdewild/heat-equation-rod/assets/93600756/5583de22-49f6-4746-984b-337138eda75c
-
-## Animation 2: Two Rods in Thermal Contact
-
-neumann
-
-https://github.com/timdewild/heat-equation-rod/assets/93600756/0c3c18e7-ece7-4081-9c75-bdef5327c6fb 
+- [Animations](#animations)
+    - [Animation 1: Bell Shaped Heating](#animation-1-bell-shaped-heating)
+    - [Animation 2: Two Rods in Thermal Contact](#animation-2-two-rods-in-thermal-contact)
 
 # Animation Details
 Here we will provide the details of the animation, for each panel separately. 
@@ -105,6 +85,28 @@ y^{(i)}(t) &= y^{(i)}_\mathrm{eq} + A\sin (\omega^{(i)}t)\sin\theta^{(i)},
 \end{align*}
 ```
 where we used the shorthand notation $\omega^{(i)}\equiv \omega(x_\mathrm{eq}^{(i)},t)$. The amplitude of the oscillation is set via $A$ and is taken to be much smaller than the lattice spacing. 
+
+# Animations
+## Animation 1: Bell Shaped Heating
+Consider the following scenario: you have a metal rod and heat it in the middle (using a lighter, for example). After you stop heating the metal, you wish to find out how the temperature in the entire rod changes over time. That is, you want to determine $u(x,t)$. Let's start at the moment you switched off the lighter and let this be time $t=0$. At this moment, the temperature distribution will peak in the middle of the rod and will be minimum at the two ends of the rod. Inbetween, we expect the temperature distribution to smoothly interpolate between the minima and maximum. 
+
+Let us make things more quantitative. The left (right) edge of the rod is located at $x=0$ ($1$) and the center at $x=1/2$. We denote the temperature at the ends as $T_\infty$ and at the center as $T_\mathrm{max}$. We use a bell-shaped function, more specifically the raised cosine distribution, to interpolate between the limiting values. Let $f(x)\equiv u(x,0)$ denote the initial temperature distribution (at $t=0$):
+$$f(x) = T_\infty+\frac{1}{2}(T_\mathrm{max}- T_\infty)\Big[1-\cos(2\pi x)\Big].$$ 
+
+> [!NOTE]
+> For mathmetical convenience, we set $T_\infty\equiv 0$ from now on. We can do this because the equation that governs the time-evolution of $u(x,t)$ is a linear differential equation and we apply the principle of superposition. If we find a solution for $u(x,t)$, we can always add a constant to the solution (i.e. $T_\neq 0$) and we will still end up with a valid solution.
+
+https://github.com/timdewild/heat-equation-rod/assets/93600756/b446ba26-cad3-4a81-be8a-be11a59d7828
+
+neumann
+
+https://github.com/timdewild/heat-equation-rod/assets/93600756/5583de22-49f6-4746-984b-337138eda75c
+
+## Animation 2: Two Rods in Thermal Contact
+
+neumann
+
+https://github.com/timdewild/heat-equation-rod/assets/93600756/0c3c18e7-ece7-4081-9c75-bdef5327c6fb 
 
 
 
