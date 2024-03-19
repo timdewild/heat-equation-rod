@@ -27,7 +27,10 @@ Different boundary conditions (BCs) yield very different solutions and also refl
 - **Uniform Dirichlet BCs:** In this case we assume that the temperature is fixed to be the same value $T_\infty$ on both ends of the rod at all times:
 $$u(x_0,t) = T_\infty.$$ These BCs are applicable in case the rod is in connection with an infinite thermal bath kept at temperature $T_\infty$. Heat will be exchanged between the rod and the bath such that the rod will get into thermal equilibrium with the bath at $T_\infty$. 
 
-- **Uniform Neumann BCs:** In this case we assume that the rod is perfectly insulated and no heat can flow in or out of the rod. Mathematically, this amounts to the spatial derivative being zero: $$u(x_0,t) = 0.$$ With those BCs, the heat in rod will distribute uniformly over the rod such that the temperature becomes uniform everywhere along the rod, irrespective of what the initial temperature distribution was. 
+- **Uniform Neumann BCs:** In this case we assume that the rod is perfectly insulated and no heat can flow in or out of the rod. Mathematically, this amounts to the spatial derivative being zero: $$u_x(x_0,t) = 0.$$ With those BCs, the heat in rod will distribute uniformly over the rod such that the temperature becomes uniform everywhere along the rod, irrespective of what the initial temperature distribution was. 
+
+Given the initial and boundary conditions, the heat equation can be solved using the Fourier series. (Actually, Joseph Fourier discovered what we now know as Fouries series when solving the heat equation back in the 19-th century). For uniform Dirichlet BCs, the solution is:
+$$u(x,t) = \sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where we defined $\lambda_n \equiv cn\pi$, $\mu_n \equiv n\pi$ and $c\equiv \sqrt{D}$. The coefficients $b_n$ are the cosine Fourier coefficients: $$b_n = \int_0^1 dx\; f(x)\sin(n\pi x).$$
 
 
 
