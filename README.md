@@ -99,7 +99,7 @@ Let us make things more quantitative. The left (right) edge of the rod is locate
 $$f(x) = T_\infty+\frac{1}{2}(T_\mathrm{max}- T_\infty)\Big[1-\cos(2\pi x)\Big].$$ 
 
 > [!NOTE]
-> For mathematical convenience, we set $T_\infty\equiv 0$ from now on. We can do this because the equation that governs the time-evolution of $u(x,t)$ is a linear differential equation and we apply the principle of superposition. If we find a solution for $u(x,t)$, we can always add a constant to the solution (i.e. $T \neq 0$) and we will still end up with a valid solution.
+> For mathematical convenience, we set $T_\infty\equiv 0$ from now on. We can do this because the equation that governs the time-evolution of $u(x,t)$ is a linear differential equation and we can apply the principle of superposition. If we find a solution for $u(x,t)$, we can always add a constant to the solution (i.e. $T_\infty \neq 0$) and we will still end up with a valid solution.
 
 To solve for the time-evolution of the temperature profile, we have to specify the boundary conditions (BCs). Here we take Dirichlet BCs and Neumann BCs.
 
@@ -126,7 +126,7 @@ f(x)=\begin{cases}
 ```
 We take Neumann BCs, so that the system is entirely isolated and heat only flows in the system. The cosine Fourier coefficients $a_n$ are given by:
 $$a_0 = (T_1+T_2)/2,\quad a_n = \frac{2}{n\pi}(T_1+T_2)\sin(n\pi/2).$$
-Not suprisingly, the temperature distribution tends to $u(x,t)\to a_0$ as time progresses, which is exactly the average of $T_1$ and T_2. 
+Not surprisingly, the temperature distribution tends to $u(x,t)\to a_0$ as time progresses, which is exactly the average of $T_1$ and T_2. 
 
 https://github.com/timdewild/heat-equation-rod/assets/93600756/0c3c18e7-ece7-4081-9c75-bdef5327c6fb 
 
