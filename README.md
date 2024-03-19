@@ -25,7 +25,9 @@ $$x_0 = \{0,1\}.$$
 Different boundary conditions (BCs) yield very different solutions and also reflect different assumptions about the physical characteristics of the system. 
 
 - **Uniform Dirichlet BCs:** In this case we assume that the temperature is fixed to be the same value $T_\infty$ on both ends of the rod at all times:
-$$u(x_0,t) = T_\infty.$$
+$$u(x_0,t) = T_\infty.$$ These BCs are applicable in case the rod is in connection with an infinite thermal bath kept at temperature $T_\infty$. Heat will be exchanged between the rod and the bath such that the rod will get into thermal equilibrium with the bath at $T_\infty$. 
+
+- **Uniform Neumann BCs:** In this case we assume that the rod is perfectly insulated and no heat can flow in or out of the rod. That is, the heat in rod will distribute uniformly over the rod such that it acquires a uniform temperature everywhere along the rod, irrespective of what the initial temperature distribution was. 
 
 
 
