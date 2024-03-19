@@ -122,7 +122,7 @@ Lastly, consider two rods of length $L=1/2$ made of the same material. The right
 f(x)=\begin{cases}
 			0, & \text{if $n$ odd}\\
             2, & \text{otherwise}
-		 \end{cases}
+	\end{cases}
 ```
 We take Neumann BCs, so that the system is entirely isolated and heat only flows in the system. The cosine Fourier coefficients $a_n$ are given by:
 $$a_0 = (T_1+T_2)/2,\quad a_n = \frac{2}{n\pi}(T_1+T_2)\sin(n\pi/2).$$
