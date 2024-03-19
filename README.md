@@ -13,6 +13,8 @@ In this animation (made using the [`matnimation`](https://github.com/timdewild/m
 
 # Animations
 ## Animation 1: Bell Shaped Heating
+Consider the following scenario: you have a metal rod and heat it in the middle (using a lighter, for example). After you stop heating the metal, you wish to find out how the temperature in the entire rod changes over time. Let's start at the moment you switched off the lighter. At this moment, the temperature distribution will peak in the middle of the rod and will be minimum at the two ends of the rod. To make things more quantative, we use coordinate $x$ as the location along the rod and work in units such that the rod has unit length. The left (right) edge of the rod is located at $x=0$ ($1$) and the center at $x=1/2$. 
+
 dirichlet
 
 https://github.com/timdewild/heat-equation-rod/assets/93600756/b446ba26-cad3-4a81-be8a-be11a59d7828
