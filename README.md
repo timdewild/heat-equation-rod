@@ -66,8 +66,8 @@ Note that since the temperature depends on space and time, the vibration frequen
 To add a bit of variaty, the atoms can vibrate in an arbitrary direction in the the 2D plane. Suppose the equilibrium position of the $i$-th atom in the lattice is given by $(x_\mathrm{eq}^{(i)}, y_\mathrm{eq}^{(i)})$ and the atom oscillates in a random direction $\theta^{(i)}\in[0,2\pi]$ with respect to the $x$-axis. Then the motion of the particle is given by:
 ```math
 \begin{align*}
-x^{(i)}(t) &= x^{(i)}_\mathrm{eq} + A\sin (\omega(x_\mathrm{eq}^{(i)}_\mathrm{eq},t)t)\cos\theta^{(i)} \nonumber\\
-y^{(i)}(t) &= y^{(i)}_\mathrm{eq} + A\sin (\omega(x_\mathrm{eq}^{(i)}_\mathrm{eq},t)t)\sin\theta^{(i)} 
+x^{(i)}(t) &= x^{(i)}_\mathrm{eq} + A\sin (\omega(x_\mathrm{eq}^{(i)},t)t)\cos\theta^{(i)} \nonumber\\
+y^{(i)}(t) &= y^{(i)}_\mathrm{eq} + A\sin (\omega(x_\mathrm{eq}^{(i)},t)t)\sin\theta^{(i)} 
 \end{align*}
 ```
 
