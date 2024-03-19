@@ -3,7 +3,7 @@ In this animation (made using the [`matnimation`](https://github.com/timdewild/m
 
 # Contents
 - [Animations](#animations)
-- [Upper Panel: Solving the Heat Equation](#upper-panel-solving-the-heat-equation)
+    - [Upper Panel: Solving the Heat Equation](#upper-panel-solving-the-heat-equation)
 - [Rotating Vectors](#rotating-vectors)
 - [Lissajous Curves](#lissajous-curves)
 - [Decaying 2D Gaussian](#decaying-2d-gaussian)
