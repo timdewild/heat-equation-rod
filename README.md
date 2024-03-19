@@ -35,7 +35,9 @@ Given the initial and boundary conditions, the heat equation can be solved using
 $$u(x,t) = \sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where we defined $\lambda_n \equiv cn\pi$, $\mu_n \equiv n\pi$ and $c\equiv \sqrt{D}$. The coefficients $b_n$ are the cosine Fourier coefficients: $$b_n = \int_0^1 dx\\; f(x)\sin(n\pi x).$$
 
 - For **uniform Neumann BCs**, the solution is:
-$$u(x,t) = a_0+\sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where the coefficients $a_n$ are the sine Fourier coefficients: $$a_0 = \int_0^1 dx\\; f(x),\quad a_n = 2\int_0^1 dx\\; f(x)\cos(\mu_n x).$$
+$$u(x,t) = a_0+\sum_{n=1}^\infty b_n e^{-\lambda_n^2 t}\cos(\mu_n x),$$ where the coefficients $a_n$ are the sine Fourier coefficients: $$a_0 = \int_0^1 dx\\; f(x),\quad a_n = 2\int_0^1 dx\\; f(x)\cos(\mu_n x).$$ Note that the coefficient $a_0$ is the average of the initial temperature distribution $f(x)$:
+$$a_0 = \bar{f}.$$ As $t\to\infty$, the solution asymptotes to $u(x,t)\to a_0$. This is to be expected, since the bar is insulated and the thermal energy distributes evenly over the bar so that the rod acquires a constant temperature everywhere. It is not suprising that this temperature is equal to the average of the initial temperature profile. 
+
 
 
 
