@@ -40,17 +40,11 @@ $$a_0 = \bar{f}.$$ As $t\to\infty$, the solution asymptotes to $u(x,t)\to a_0$. 
 
 ## Heat Flux: Fourier's Law
 In addition to the evolution of the temperature over time, it is also interesting to look at the heat flux in the rod. The flux tells us how heat flows through the rod over time. We define heat flux density $\vec{q}$ as the amount of thermal energy $dE$ flowing though an area element $d\vec{A}= dA\\;\hat{n}$ in time interval $dt$. This is given by:
-$$
-\vec{q} = \frac{dE}{dA\\;dt}. 
-$$
+$$\vec{q} = \frac{dE}{dA\\;dt}.$$
 Energy flows from hot regions to cold regions, so as to get the whole system into thermal equilibrium. Therefore, we expect the heat flux $\vec{q}$ to be proportional to the negative gradient of the temperature:
-$$
-\vec{q} = -k\vec{\nabla} u,
-$$
+$$\vec{q} = -k\vec{\nabla} u,$$
 where the proportionality constant $k$ is the thermal conductivity. In our one-dimesional case, we have:
-$$
-\vec{q}(x,t) = -k u_x(x,t)\hat{x}
-$$
+$$\vec{q}(x,t) = -k u_x(x,t)\hat{x}.$$
 
 
 
